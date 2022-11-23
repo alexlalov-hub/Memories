@@ -1,4 +1,4 @@
 .title{
-    background: url("./HomePageImage.jpg") center no-repeat;
+    background: url("src/assets/HomePageImage.jpg") center no-repeat;
     background-size: cover;
 }
