@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthenticationModalComponent } from './authentication-modal/authentication-modal.component';
+import {SharedModule} from "../shared/shared.module";
 
 
 
@@ -12,7 +13,8 @@ import { AuthenticationModalComponent } from './authentication-modal/authenticat
         AuthenticationModalComponent
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        SharedModule
     ]
 })
 export class UserModule { }
