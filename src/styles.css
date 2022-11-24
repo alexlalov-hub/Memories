@@ -10,6 +10,10 @@ body {
     font-size: inherit;
 }
 
+.bg-secondary {
+    background-color: #283046;
+}
+
 .latest {
     grid-template-columns: 1fr auto 1fr;
     grid-template-rows: 20px 0;
