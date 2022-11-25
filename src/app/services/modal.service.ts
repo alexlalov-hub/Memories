@@ -20,7 +20,10 @@ export class ModalService {
             visible: false
         })
 
-        console.log(this.modals)
+    }
+
+    unregister(id : string) {
+        this.modals = this.modals.filter(item => item.id !== id)
     }
 
     isModalVisible(id: string) : boolean {
