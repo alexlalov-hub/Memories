@@ -1,67 +1,20 @@
 <form [formGroup]="registerForm">
     <div class="mb-3">
         <label class="inline-block mb-2">Name</label>
-        <input formControlName="name" type="text"
-               class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
-                  duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
-               placeholder="Enter Name"/>
-        <p *ngIf="registerForm.controls.name.errors?.required" class="text-red-500 mt-2">
-            This field is required.
-        </p>
-
-        <p *ngIf="registerForm.controls.name.errors?.minlength || registerForm.controls.name.errors?.maxlength" class="text-red-500 mt-2">
-            The value you inputted
-            is {{ registerForm.controls.name.errors?.minlength?.actualLength || registerForm.controls.name.errors?.maxlength?.actualLength }}
-            characters long.
-            It must be between 3 and 16 characters.
-        </p>
+        <app-input [control]="registerForm.controls.name" placeholder="Enter Name"></app-input>
     </div>
     <div class="mb-3">
 
         <label class="inline-block mb-2">Email</label>
-        <input formControlName="email" type="email"
-               class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
-                  duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
-               placeholder="Enter Email"/>
-        <p *ngIf="registerForm.controls.email.errors?.required" class="text-red-500 mt-2">
-            This field is required.
-        </p>
-
-        <p *ngIf="registerForm.controls.email.errors?.email" class="text-red-500 mt-2">
-            This field requires an email.
-        </p>
+        <app-input [control]="registerForm.controls.email" type="email" placeholder="Enter Email"></app-input>
     </div>
     <div class="mb-3">
         <label class="inline-block mb-2">Age</label>
-        <input formControlName="age" type="number"
-               class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
-                  duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"/>
-
-        <p *ngIf="registerForm.controls.age.errors?.required" class="text-red-500 mt-2">
-            This field is required.
-        </p>
-
-        <p *ngIf="registerForm.controls.age.errors?.min || registerForm.controls.age.errors?.max" class="text-red-500 mt-2">
-            The age you inputted
-            is {{ registerForm.controls.age.errors?.min?.actual || registerForm.controls.age.errors?.max?.actual}}
-            years.
-            It must be between 18 and 120 years.
-        </p>
+        <app-input [control]="registerForm.controls.age" type="number" placeholder="Enter Age"></app-input>
     </div>
     <div class="mb-3">
         <label class="inline-block mb-2">Password</label>
-        <input formControlName="password" type="password"
-               class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
-                  duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
-               placeholder="Password"/>
-
-        <p *ngIf="registerForm.controls.password.errors?.required" class="text-red-500 mt-2">
-            This field is required.
-        </p>
-
-        <p *ngIf="registerForm.controls.password.errors?.pattern" class="text-red-500 mt-2">
-            Password must be longer than 8 characters and have at least one capital letter and a number.
-        </p>
+        <app-input [control]="registerForm.controls.password" type="password" placeholder="Enter Password"></app-input>
     </div>
     <div class="mb-3">
         <label class="inline-block mb-2">Confirm Password</label>
@@ -70,32 +23,25 @@
                   duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
                placeholder="Confirm Password"/>
 
-        <p *ngIf="registerForm.controls.confirmPassword.errors?.required" class="text-red-500 mt-2">
+        <p *ngIf="registerForm.controls.confirmPassword.touched && registerForm.controls.confirmPassword.errors?.required"
+           class="text-red-500 mt-2">
             This field is required.
         </p>
 
-        <p *ngIf="registerForm.controls.confirmPassword.errors?.pattern" class="text-red-500 mt-2">
+        <p *ngIf="registerForm.controls.confirmPassword.touched && registerForm.controls.confirmPassword.dirty && registerForm.controls.confirmPassword.errors?.pattern"
+           class="text-red-500 mt-2">
             Password must be longer than 8 characters and have at least one capital letter and a number.
         </p>
 
-        <p *ngIf="registerForm.controls.confirmPassword.value !== registerForm.controls.password.value && registerForm.controls.password.value != '' " class="text-red-500 mt-2">
+        <p *ngIf="registerForm.controls.confirmPassword.touched && registerForm.controls.confirmPassword.dirty && registerForm.controls.confirmPassword.value !== registerForm.controls.password.value && registerForm.controls.password.value != '' "
+           class="text-red-500 mt-2">
             Confirm password must be the same as the password.
         </p>
     </div>
     <div class="mb-3">
         <label class="inline-block mb-2">Phone Number</label>
-        <input formControlName="phoneNumber" type="text"
-               class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
-                  duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
-               placeholder="Enter Phone Number"/>
-
-        <p *ngIf="registerForm.controls.phoneNumber.errors?.required" class="text-red-500 mt-2">
-            This field is required.
-        </p>
-
-        <p *ngIf="registerForm.controls.phoneNumber.errors?.pattern" class="text-red-500 mt-2">
-            Phone number must be 10 characters long and consist only of numbers.
-        </p>
+        <app-input [control]="registerForm.controls.phoneNumber" placeholder="Enter Phone NUmber"
+        format="000 000 0000"></app-input>
     </div>
     <button type="submit"
             class="block w-full bg-indigo-400 text-white py-1.5 px-3 rounded transition
@@ -103,4 +49,3 @@
         Submit
     </button>
 </form>
-

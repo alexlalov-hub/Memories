@@ -9,7 +9,7 @@ interface IModal {
     providedIn: 'root'
 })
 export class ModalService {
-    private modals: IModal[] = []
+    public modals: IModal[] = []
 
     constructor() {
     }
@@ -27,7 +27,7 @@ export class ModalService {
     }
 
     isModalVisible(id: string) : boolean {
-        return Boolean( this.modals.find(item => item.id === id)?.visible)
+        return Boolean(this.modals.find(item => item.id === id)?.visible)
     }
 
     toggleModal(id : string) {

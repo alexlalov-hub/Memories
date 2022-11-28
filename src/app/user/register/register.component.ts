@@ -32,7 +32,8 @@ export class RegisterComponent {
         ]),
         phoneNumber: new FormControl('', [
             Validators.required,
-            Validators.pattern(/^[0-9]{10}$/)
+            Validators.minLength(10),
+            Validators.maxLength(10)
         ])
     })
 }
