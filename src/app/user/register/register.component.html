@@ -1,4 +1,4 @@
-<form [formGroup]="registerForm">
+<form [formGroup]="registerForm" (ngSubmit)="register()">
     <div class="mb-3">
         <label class="inline-block mb-2">Name</label>
         <app-input [control]="registerForm.controls.name" placeholder="Enter Name"></app-input>
@@ -40,12 +40,12 @@
     </div>
     <div class="mb-3">
         <label class="inline-block mb-2">Phone Number</label>
-        <app-input [control]="registerForm.controls.phoneNumber" placeholder="Enter Phone NUmber"
+        <app-input [control]="registerForm.controls.phoneNumber" placeholder="Enter Phone Number"
         format="000 000 0000"></app-input>
     </div>
     <button type="submit"
             class="block w-full bg-indigo-400 text-white py-1.5 px-3 rounded transition
-                hover:bg-indigo-500 mt-10">
+                hover:bg-indigo-500 mt-10 disabled:opacity-50 disabled:hover:bg-indigo-400" [disabled]="registerForm.invalid">
         Submit
     </button>
 </form>
