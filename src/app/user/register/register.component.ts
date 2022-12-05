@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {FormGroup, FormControl, Validators} from "@angular/forms";
-import {AngularFireAuth} from "@angular/fire/compat/auth";
+import {AuthService} from "../../services/auth.service";
+import IUser from "../../models/user.model";
 
 @Component({
     selector: 'app-register',
@@ -11,8 +12,9 @@ export class RegisterComponent {
     showAlert = false
     alertMessage = 'Please wait while your account is being created'
     alertColor = 'blue'
+    inSubmission = false
 
-    constructor(private auth: AngularFireAuth) {
+    constructor(private auth: AuthService) {
     }
 
     registerForm = new FormGroup({
@@ -25,7 +27,7 @@ export class RegisterComponent {
             Validators.required,
             Validators.email
         ]),
-        age: new FormControl('', [
+        age: new FormControl<number | null>(null, [
             Validators.required,
             Validators.min(18),
             Validators.max(120)
@@ -49,17 +51,18 @@ export class RegisterComponent {
         this.showAlert = true
         this.alertMessage = 'Please wait while your account is being created'
         this.alertColor = 'blue'
-
-        const {email, password} = this.registerForm.value;
+        this.inSubmission = true
 
         try {
-            await this.auth.createUserWithEmailAndPassword(email as string, password as string)
+            await this.auth.createUser(this.registerForm.value as IUser)
         }catch (e){
             this.alertMessage = 'Something went wrong. Try again later.'
             this.alertColor = 'red'
+            this.inSubmission = false
             return
         }
 
+        this.inSubmission = false
         this.alertMessage = 'Success!'
         this.alertColor = 'green'
     }
