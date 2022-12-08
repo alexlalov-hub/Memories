@@ -49,14 +49,14 @@ export class RegisterComponent {
 
     async register() {
         this.showAlert = true
-        this.alertMessage = 'Please wait while your account is being created'
+        this.alertMessage = 'Please wait while your account is being created!'
         this.alertColor = 'orange'
         this.inSubmission = true
 
         try {
             await this.auth.createUser(this.registerForm.value as IUser)
         }catch (e){
-            this.alertMessage = 'Something went wrong. Try again later.'
+            this.alertMessage = 'Something went wrong!'
             this.alertColor = 'red'
             this.inSubmission = false
             return

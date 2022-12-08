@@ -232,5 +232,5 @@
     </div>
 </section>
 
-<app-authentication-modal></app-authentication-modal>
+<app-authentication-modal *ngIf="!(auth.isAuthDelayed$ | async)"></app-authentication-modal>
 

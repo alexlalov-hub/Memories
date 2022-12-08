@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
             await this.auth.logUser(this.credentials.email, this.credentials.password)
         }catch (e){
             this.isSubmitting = false
-            this.alertMessage = 'Please try again later.'
+            this.alertMessage = 'Something went wrong!'
             this.alertColor = 'red'
 
             return
