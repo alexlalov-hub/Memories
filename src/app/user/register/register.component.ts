@@ -11,7 +11,7 @@ import IUser from "../../models/user.model";
 export class RegisterComponent {
     showAlert = false
     alertMessage = 'Please wait while your account is being created'
-    alertColor = 'blue'
+    alertColor = 'orange'
     inSubmission = false
 
     constructor(private auth: AuthService) {
@@ -50,7 +50,7 @@ export class RegisterComponent {
     async register() {
         this.showAlert = true
         this.alertMessage = 'Please wait while your account is being created'
-        this.alertColor = 'blue'
+        this.alertColor = 'orange'
         this.inSubmission = true
 
         try {

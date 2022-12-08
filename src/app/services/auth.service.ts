@@ -23,6 +23,7 @@ export class AuthService {
         if (!userData.password) {
             throw new Error('Please provide a password!')
         }
+
         const user = await this.auth.createUserWithEmailAndPassword(userData.email as string, userData.password as string)
 
         if (!user.user) {
@@ -35,5 +36,17 @@ export class AuthService {
             age: userData.age,
             phoneNumber: userData.phoneNumber
         })
+    }
+
+    public async logUser(email: string, password: string){
+        if(!email){
+            throw new Error('Please provide an email!')
+        }
+
+        if(!password){
+            throw new Error('Please provide a password!')
+        }
+
+        await this.auth.signInWithEmailAndPassword(email, password)
     }
 }
