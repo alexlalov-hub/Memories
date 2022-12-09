@@ -11,29 +11,21 @@
                     <li>
                         <a class="px-2" href="#">Upload</a>
                     </li>
+                    <li>
+                        <a class="px-2" href="#" (click)="logout($event)">Logout</a>
+                    </li>
 
                 </ng-template>
             </ul>
 
             <ul class="flex flex-row ml-auto">
-<!--                <li>-->
-<!--                    <a href="#" style="display: none;" class="flex flex-row gap-1">-->
-<!--                        <img src="https://cdn-icons-png.flaticon.com/24/206/206626.png" alt="usa-flag">-->
-<!--                        <span class="ml-1">English</span>-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li style="">-->
-<!--                    <a href="#" class="flex flex-row gap-1">-->
-<!--                        <img src="https://cdn-icons-png.flaticon.com/24/8603/8603052.png" alt="bulgarian-flag">-->
-<!--                        <span class="ml-1">Bulgarian</span>-->
-<!--                    </a>-->
-<!--                </li>-->
-                <li class="ml-3" *ngIf="!(auth.isAuth$ | async); else links">
-                    <a class="px-2" href="#" (click)="openModal($event)">Login / Register</a>
-                </li>
                 <li>
                     <a class="px-2" href="about.html">About</a>
                 </li>
+                <li class="ml-3" *ngIf="!(auth.isAuth$ | async); else links">
+                    <a class="px-2" href="#" (click)="openModal($event)">Login / Register</a>
+                </li>
+
             </ul>
         </div>
     </nav>
