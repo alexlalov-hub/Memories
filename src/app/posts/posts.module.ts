@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { PostsRoutingModule } from './posts-routing.module';
 import { CatalogComponent } from './catalog/catalog.component';
+import { UploadComponent } from './upload/upload.component';
 
 
 @NgModule({
   declarations: [
-    CatalogComponent
+    CatalogComponent,
+    UploadComponent
   ],
   imports: [
     CommonModule,
