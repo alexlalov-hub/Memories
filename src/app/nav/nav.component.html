@@ -1,12 +1,12 @@
 <header id="header" class="bg-cyan-800">
     <nav class="container mx-auto flex justify-start items-center py-8 px-4">
-        <a class="text-3xl text-orange-600 font-bold uppercase mr-4" href="index.html">Memories</a>
+        <a class="text-3xl text-orange-600 font-bold uppercase mr-4" routerLink="/">Memories</a>
 
         <div class="flex flex-grow items-center">
             <ul class="flex flex-row mt-1">
                 <ng-template #links>
                     <li>
-                        <a class="px-2" href="#">Catalog</a>
+                        <a class="px-2" routerLink="/catalog" routerLinkActive="text-orange-400" [routerLinkActiveOptions]="{ exact: true }">Catalog</a>
                     </li>
                     <li>
                         <a class="px-2" href="#">Upload</a>
@@ -19,9 +19,6 @@
             </ul>
 
             <ul class="flex flex-row ml-auto">
-                <li>
-                    <a class="px-2" href="about.html">About</a>
-                </li>
                 <li class="ml-3" *ngIf="!(auth.isAuth$ | async); else links">
                     <a class="px-2" href="#" (click)="openModal($event)">Login / Register</a>
                 </li>
