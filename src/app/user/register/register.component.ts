@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {FormGroup, FormControl, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
 import IUser from "../../models/user.model";
+import {RegisterValidators} from "../validators/register-validators";
+import {EmailChecker} from "../validators/email-checker";
 
 @Component({
     selector: 'app-register',
@@ -14,7 +16,7 @@ export class RegisterComponent {
     alertColor = 'orange'
     inSubmission = false
 
-    constructor(private auth: AuthService) {
+    constructor(private auth: AuthService, private emailChecker: EmailChecker) {
     }
 
     registerForm = new FormGroup({
@@ -26,7 +28,7 @@ export class RegisterComponent {
         email: new FormControl('', [
             Validators.required,
             Validators.email
-        ]),
+        ], [this.emailChecker.validate]),
         age: new FormControl<number | null>(null, [
             Validators.required,
             Validators.min(18),
@@ -45,7 +47,7 @@ export class RegisterComponent {
             Validators.minLength(10),
             Validators.maxLength(10)
         ])
-    })
+    }, [RegisterValidators.matchPass])
 
     async register() {
         this.showAlert = true

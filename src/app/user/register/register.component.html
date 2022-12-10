@@ -22,25 +22,7 @@
     </div>
     <div class="mb-3">
         <label class="inline-block mb-2">Confirm Password</label>
-        <input formControlName="confirmPassword" type="password"
-               class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
-                  duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
-               placeholder="Confirm Password"/>
-
-        <p *ngIf="registerForm.controls.confirmPassword.touched && registerForm.controls.confirmPassword.errors?.required"
-           class="text-red-500 mt-2">
-            This field is required.
-        </p>
-
-        <p *ngIf="registerForm.controls.confirmPassword.touched && registerForm.controls.confirmPassword.dirty && registerForm.controls.confirmPassword.errors?.pattern"
-           class="text-red-500 mt-2">
-            Password must be longer than 8 characters and have at least one capital letter and a number.
-        </p>
-
-        <p *ngIf="registerForm.controls.confirmPassword.touched && registerForm.controls.confirmPassword.dirty && registerForm.controls.confirmPassword.value !== registerForm.controls.password.value && registerForm.controls.password.value != '' "
-           class="text-red-500 mt-2">
-            Confirm password must be the same as the password.
-        </p>
+        <app-input [control]="registerForm.controls.confirmPassword" type="password" placeholder="Enter Confirm Password"></app-input>
     </div>
     <div class="mb-3">
         <label class="inline-block mb-2">Phone Number</label>
