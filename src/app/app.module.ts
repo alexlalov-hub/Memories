@@ -12,6 +12,7 @@ import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import { HomeComponent } from './home/home.component';
 import {PostsModule} from "./posts/posts.module";
 import { PostComponent } from './post/post.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
     declarations: [
@@ -19,15 +20,16 @@ import { PostComponent } from './post/post.component';
         NavComponent,
         HomeComponent,
         PostComponent,
+        NotFoundComponent,
     ],
     imports: [
         BrowserModule,
-        AppRoutingModule,
         UserModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireAuthModule,
         AngularFirestoreModule,
-        PostsModule
+        PostsModule,
+        AppRoutingModule
     ],
     providers: [],
     bootstrap: [AppComponent]
