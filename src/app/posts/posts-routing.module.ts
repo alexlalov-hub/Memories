@@ -5,7 +5,7 @@ import {UploadComponent} from "./upload/upload.component";
 
 const routes: Routes = [
     {
-        path: 'catalog',
+        path: 'profile',
         component: CatalogComponent
     },
     {

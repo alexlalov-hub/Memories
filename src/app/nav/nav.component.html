@@ -6,7 +6,7 @@
             <ul class="flex flex-row mt-1">
                 <ng-template #links>
                     <li>
-                        <a class="px-2" routerLink="/catalog" routerLinkActive="text-orange-400" [routerLinkActiveOptions]="{ exact: true }">Catalog</a>
+                        <a class="px-2" routerLink="/profile" routerLinkActive="text-orange-400" [routerLinkActiveOptions]="{ exact: true }" [queryParams]="{ sortBy: 'asc'}">Your Uploads</a>
                     </li>
                     <li>
                         <a class="px-2" routerLink="/upload" routerLinkActive="text-orange-400" [routerLinkActiveOptions]="{ exact: true }">Upload</a>

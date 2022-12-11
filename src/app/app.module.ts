@@ -11,12 +11,14 @@ import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import { HomeComponent } from './home/home.component';
 import {PostsModule} from "./posts/posts.module";
+import { PostComponent } from './post/post.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         NavComponent,
         HomeComponent,
+        PostComponent,
     ],
     imports: [
         BrowserModule,
