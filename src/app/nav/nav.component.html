@@ -6,10 +6,12 @@
             <ul class="flex flex-row mt-1">
                 <ng-template #links>
                     <li>
-                        <a class="px-2" routerLink="/profile" routerLinkActive="text-orange-400" [routerLinkActiveOptions]="{ exact: true }" [queryParams]="{ sortBy: 'asc'}">Your Uploads</a>
+                        <a class="px-2" routerLink="/profile" routerLinkActive="text-orange-400"
+                           [routerLinkActiveOptions]="{ exact: true }" [queryParams]="{ sortBy: 'asc'}">Your Uploads</a>
                     </li>
                     <li>
-                        <a class="px-2" routerLink="/upload" routerLinkActive="text-orange-400" [routerLinkActiveOptions]="{ exact: true }">Upload</a>
+                        <a class="px-2" routerLink="/upload" routerLinkActive="text-orange-400"
+                           [routerLinkActiveOptions]="{ exact: true }">Upload</a>
                     </li>
                     <li>
                         <a class="px-2" href="#" (click)="auth.logout($event)">Logout</a>
@@ -19,9 +21,14 @@
             </ul>
 
             <ul class="flex flex-row ml-auto">
+                <li>
+                    <a class="px-2" routerLink="/catalog" routerLinkActive="text-orange-400"
+                       [routerLinkActiveOptions]="{ exact: true }" [queryParams]="{ sortBy: 'asc'}">Catalog</a>
+                </li>
                 <li class="ml-3" *ngIf="!(auth.isAuth$ | async); else links">
                     <a class="px-2" href="#" (click)="openModal($event)">Login / Register</a>
                 </li>
+
 
             </ul>
         </div>

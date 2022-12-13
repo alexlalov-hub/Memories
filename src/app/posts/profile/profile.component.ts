@@ -1,14 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import IPost from "../../models/post.model";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {PostService} from "../../services/post.service";
-import IPost from "../../models/post.model";
 
 @Component({
-    selector: 'app-catalog',
-    templateUrl: './catalog.component.html',
-    styleUrls: ['./catalog.component.css']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css']
 })
-export class CatalogComponent implements OnInit {
+export class ProfileComponent implements OnInit {
+
     sortingOrder = 'asc'
     posts: IPost[] = []
 
@@ -21,7 +22,7 @@ export class CatalogComponent implements OnInit {
             this.sortingOrder = params.sortBy === 'desc' ? 'desc' : 'asc'
         })
 
-        this.postService.getAllPosts().then(posts => {
+        this.postService.getUsersPosts().then(posts => {
             this.posts = []
 
             posts?.forEach(doc => {
@@ -36,7 +37,8 @@ export class CatalogComponent implements OnInit {
     query(event: Event) {
         const {value} = (event.target as HTMLSelectElement)
 
-        this.router.navigateByUrl(`/catalog?sortBy=${value === '1' ? 'asc' : 'desc'}`)
+        this.router.navigateByUrl(`/profile?sortBy=${value === '1' ? 'asc' : 'desc'}`)
 
     }
+
 }

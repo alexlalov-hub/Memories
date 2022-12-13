@@ -3,13 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import {CatalogComponent} from "./catalog/catalog.component";
 import {UploadComponent} from "./upload/upload.component";
 import {AngularFireAuthGuard, redirectUnauthorizedTo} from "@angular/fire/compat/auth-guard";
+import {ProfileComponent} from "./profile/profile.component";
 
 const redirect = () => redirectUnauthorizedTo('/')
 
 const routes: Routes = [
     {
         path: 'profile',
-        component: CatalogComponent,
+        component: ProfileComponent,
         data: {
           authGuardPipe: redirect
         },
@@ -25,7 +26,7 @@ const routes: Routes = [
     },
     {
         path: 'catalog',
-        redirectTo: 'profile'
+        component: CatalogComponent
     }
 ];
 

@@ -1,7 +1,12 @@
-<input [formControl]="control" [type]="type"
+<input *ngIf="type !== 'file'; else file"  [formControl]="control" [type]="type"
        class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
-                  duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
+                  duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400 mb-4"
        [placeholder]="placeholder" [mask]="format"/>
+
+<ng-template #file>
+    <input [formControl]="control" [type]="type" class="mt-4"/>
+</ng-template>
+
 
 <ng-container *ngIf="control.touched && control.dirty">
     <p *ngIf="control.errors?.required" class="text-red-500 mt-2">
@@ -37,6 +42,10 @@
 
     <p *ngIf="control.errors?.emailTaken" class="text-red-500">
         Email is already taken!
+    </p>
+
+    <p *ngIf="control.errors?.wrongType" class="text-red-500">
+        Wrong file type!
     </p>
 </ng-container>
 
