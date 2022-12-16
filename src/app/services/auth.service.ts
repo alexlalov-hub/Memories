@@ -41,6 +41,10 @@ export class AuthService {
             age: userData.age,
             phoneNumber: userData.phoneNumber
         })
+
+        user.user?.updateProfile({
+            displayName: userData.name
+        })
     }
 
     public async logUser(email: string, password: string){

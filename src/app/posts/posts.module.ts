@@ -7,13 +7,15 @@ import { UploadComponent } from './upload/upload.component';
 import {SharedModule} from "../shared/shared.module";
 import {ReactiveFormsModule} from "@angular/forms";
 import { ProfileComponent } from './profile/profile.component';
+import { EditComponent } from './edit/edit.component';
 
 
 @NgModule({
   declarations: [
     CatalogComponent,
     UploadComponent,
-    ProfileComponent
+    ProfileComponent,
+    EditComponent
   ],
     imports: [
         CommonModule,

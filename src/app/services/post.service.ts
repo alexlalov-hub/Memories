@@ -4,7 +4,6 @@ import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/compat/firestore";
 import firebase from "firebase/compat/app";
 import {Router} from "@angular/router";
-import {map} from "rxjs/operators";
 
 @Injectable({
     providedIn: 'root'
@@ -51,7 +50,6 @@ export class PostService {
             return null;
         }
 
-        console.log(this.user.uid)
         const posts = this.collection.ref.where(
             'uid', '==', this.user.uid
         )
@@ -59,4 +57,19 @@ export class PostService {
         return posts.get()
     }
 
+    public async getPostById(id: string){
+        return this.collection.doc(id).get()
+    }
+
+    public async updatePost(id: string, title: string, description: string){
+        await this.collection.doc(id).update({ title: title, description: description})
+
+        await this.router.navigateByUrl('/profile?sortBy=asc')
+    }
+
+    public async deletePost(id: string){
+        await this.collection.doc(id).delete()
+
+        await this.router.navigateByUrl('/profile?sortBy=asc')
+    }
 }

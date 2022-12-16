@@ -41,4 +41,8 @@ export class ProfileComponent implements OnInit {
 
     }
 
+    async deletePost(id: string){
+        await this.postService.deletePost(id)
+    }
+
 }
