@@ -1,6 +1,10 @@
 # Memories
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.9.
+Memories is a its core a blog system focused mainly on people's experiences which they do not want to forget.
+
+# Description
+
+Memories is a website built for travelers and overall people who love spending time away from home and wish to spread their joy with other people using their educational posts. It is built using the Angular framework with the help of TailwindCSS and Firebase as its BaaS and the JavaScript language's superset TypeScript. In the future i would like to expand the site's functionality by adding comments, likes and perhaps share links to populate your posts with other people.
 
 ## Development server
 
@@ -25,3 +29,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
