@@ -9,7 +9,7 @@ Memories is a website built for travelers and overall people who love spending t
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-You can also find the site deployed here: https://ornate-fenglisu-bd9ad0.netlify.app/
+You can also find the site deployed using Netlify here: https://ornate-fenglisu-bd9ad0.netlify.app/
 
 ## Code scaffolding
 
