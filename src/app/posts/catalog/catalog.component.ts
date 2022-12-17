@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {PostService} from "../../services/post.service";
 import IPost from "../../models/post.model";
+import {timeout} from "rxjs";
 
 @Component({
     selector: 'app-catalog',
@@ -18,10 +19,10 @@ export class CatalogComponent implements OnInit {
 
     ngOnInit(): void {
         this.route.queryParams.subscribe((params: Params) => {
-            this.sortingOrder = params.sortBy === 'desc' ? 'desc' : 'asc'
+            this.sortingOrder = params.sortBy === 'asc' ? 'asc' : 'desc'
         })
 
-        this.postService.getAllPosts().then(posts => {
+        this.postService.getAllPosts(this.sortingOrder === 'asc' ? 'desc' : 'asc').then(posts => {
             this.posts = []
 
             posts?.forEach(doc => {
@@ -38,5 +39,15 @@ export class CatalogComponent implements OnInit {
 
         this.router.navigateByUrl(`/catalog?sortBy=${value === '1' ? 'asc' : 'desc'}`)
 
+        this.postService.getAllPosts(this.sortingOrder).then(posts => {
+            this.posts = []
+
+            posts?.forEach(doc => {
+                this.posts.push({
+                    id: doc.id,
+                    ...doc.data() as IPost
+                })
+            })
+        })
     }
 }

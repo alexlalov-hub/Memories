@@ -19,17 +19,22 @@
 
             <div class="p-6 text-2xl">
 
-                <a href="#" class="font-bold mb-2">
+                <a [routerLink]="['/post/', post.id]" class="font-bold mb-2">
                     {{ post.title }}
                 </a>
 
             </div>
 
+            <p class="mb-0 pl-6 pb-8">
+                {{post?.author}} &#183;
+                <span class="text-gray-400">{{post?.timestamp?.toDate() | date: 'dd MMM YYYY' }}</span>
+            </p>
+
             <div class="flex text-center">
                 <a [routerLink]="['/edit/', post.id]" class="flex-1 mb-2 transition hover:text-indigo-400">
                     <span>Edit</span>
                 </a>
-                <a href="" (click)="deletePost(post.id ? post.id : '')" class="flex-1 pb-4 transition hover:text-indigo-400">
+                <a href="" (click)="deletePost($event,post.id ? post.id : '')" class="flex-1 pb-4 transition hover:text-indigo-400">
                     <span>Delete</span>
                 </a>
             </div>

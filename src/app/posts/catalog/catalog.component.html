@@ -9,20 +9,25 @@
 </section>
 
 <div class="container mx-auto my-8">
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        <div *ngFor="let post of posts" class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary max-h-[800px] flex flex-col justify-start">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 overflow-hidden">
+        <div *ngFor="let post of posts" class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary flex flex-col justify-start overflow-hidden">
 
             <a [routerLink]="['/post/', post.id]" class="text-center">
                 <img class="card-img-top rounded-tl-2xl max-h-[500px] inline w-fit" [src]="post.imageUrl">
             </a>
 
-            <div class="p-6 text-2xl">
+            <div class="p-6 text-2xl ">
 
-                <a href="#" class="font-bold mb-2">
+                <a [routerLink]="['/post/', post.id]" class="font-bold mb-2">
                     {{ post.title }}
                 </a>
 
             </div>
+
+            <p class="mb-0 pl-6 pb-8">
+                {{post?.author}} &#183;
+                <span class="text-gray-400">{{post?.timestamp?.toDate() | date: 'dd MMM YYYY' }}</span>
+            </p>
 
         </div>
     </div>

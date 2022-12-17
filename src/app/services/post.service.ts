@@ -30,6 +30,7 @@ export class PostService {
 
         await this.collection.add({
             uid: this.user?.uid,
+            author: this.user?.displayName,
             title: postData.title,
             description: postData.description,
             imageUrl: postData.imageUrl,
@@ -39,20 +40,20 @@ export class PostService {
         await this.router.navigateByUrl('/profile?sortBy=asc')
     }
 
-    public async getAllPosts(){
-        const posts = this.collection.ref
+    public async getAllPosts(sortingOrder: string){
+        const posts = this.collection.ref.orderBy('timestamp', sortingOrder === 'desc' ? 'desc' : 'asc')
 
         return posts.get()
     }
 
-    public async getUsersPosts(){
+    public async getUsersPosts(sortingOrder: string){
         if(!this.user){
             return null;
         }
 
         const posts = this.collection.ref.where(
             'uid', '==', this.user.uid
-        )
+        ).orderBy('timestamp', sortingOrder === 'asc' ? 'asc' : 'desc')
 
         return posts.get()
     }
@@ -69,7 +70,11 @@ export class PostService {
 
     public async deletePost(id: string){
         await this.collection.doc(id).delete()
+    }
 
-        await this.router.navigateByUrl('/profile?sortBy=asc')
+    public async getPostsForHome(){
+        const posts = this.collection.ref.orderBy('timestamp', 'desc').limit(6)
+
+        return posts.get()
     }
 }

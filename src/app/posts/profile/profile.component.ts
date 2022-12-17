@@ -19,10 +19,10 @@ export class ProfileComponent implements OnInit {
 
     ngOnInit(): void {
         this.route.queryParams.subscribe((params: Params) => {
-            this.sortingOrder = params.sortBy === 'desc' ? 'desc' : 'asc'
+            this.sortingOrder = params.sortBy === 'asc' ? 'asc' : 'desc'
         })
 
-        this.postService.getUsersPosts().then(posts => {
+        this.postService.getUsersPosts(this.sortingOrder === 'asc' ? 'desc' : 'asc').then(posts => {
             this.posts = []
 
             posts?.forEach(doc => {
@@ -39,10 +39,28 @@ export class ProfileComponent implements OnInit {
 
         this.router.navigateByUrl(`/profile?sortBy=${value === '1' ? 'asc' : 'desc'}`)
 
+        this.postService.getUsersPosts(this.sortingOrder).then(posts => {
+            this.posts = []
+
+            posts?.forEach(doc => {
+                this.posts.push({
+                    id: doc.id,
+                    ...doc.data() as IPost
+                })
+            })
+        })
     }
 
-    async deletePost(id: string){
+    async deletePost(event:Event, id: string){
+        event.preventDefault()
+
         await this.postService.deletePost(id)
+
+        this.posts.forEach((el, index) => {
+            if(el.id == id){
+                this.posts.splice(index, 1)
+            }
+        })
     }
 
 }

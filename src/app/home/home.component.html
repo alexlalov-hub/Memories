@@ -16,191 +16,24 @@
         Posts</h1>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        <a href="#"
-           class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
+        <div *ngFor="let post of posts" class="mt-6 rounded-md shadow-xl bg-secondary max-h-[800px] flex flex-col justify-start overflow-hidden">
 
-            <img class="card-img-top rounded-tl-2xl w-full" src="">
+            <a [routerLink]="['/post/', post.id]" class="text-center">
+                <img class="card-img-top rounded-tl-2xl w-fit max-h-[500px] inline" [src]="post.imageUrl">
+            </a>
 
-            <div class="relative">
-                <div class="absolute pointer-events-none bottom-full w-full bg-secondary text-white">
-                    <div class="absolute bottom-full w-full pb-5 overflow-hidden">
-                        <svg viewBox="0 0 100 50" preserveAspectRatio="none"
-                             class="absolute bottom-0 w-full h-full tranform"
-                             style="transform-origin: top center; transform: scale(2);">
-                            <path d="M0 25h25L75 0h25v50H0z" fill="#283046"></path>
-                        </svg>
-                    </div>
-                </div>
-            </div>
+            <div class="p-6 text-2xl">
 
-            <div class="p-8">
-
-                <h2 class="text-3xl mb-2">
-                    Game Highlighting Clip
-                </h2>
-
-                <p class="mb-0">
-                    Luis Ramirez &#183;
-                    <span class="text-gray-400">March 31, 2020</span>
-                </p>
+                <a [routerLink]="['/post/', post.id]" class="font-bold mb-2">
+                    {{ post.title }}
+                </a>
 
             </div>
 
-        </a>
-        <a href="#"
-           class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
-
-            <img class="card-img-top rounded-tl-2xl w-full" src="">
-
-            <div class="relative">
-                <div class="absolute pointer-events-none bottom-full w-full bg-secondary text-white">
-                    <div class="absolute bottom-full w-full pb-5 overflow-hidden">
-                        <svg viewBox="0 0 100 50" preserveAspectRatio="none"
-                             class="absolute bottom-0 w-full h-full tranform"
-                             style="transform-origin: top center; transform: scale(2);">
-                            <path d="M0 25h25L75 0h25v50H0z" fill="#283046"></path>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-
-            <div class="p-8">
-
-                <h2 class="text-3xl mb-2">
-                    Game Highlighting Clip
-                </h2>
-
-                <p class="mb-0">
-                    Luis Ramirez &#183;
-                    <span class="text-gray-400">March 31, 2020</span>
-                </p>
-
-            </div>
-
-        </a>
-        <a href="#"
-           class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
-
-            <img class="card-img-top rounded-tl-2xl w-full" src="">
-
-            <div class="relative">
-                <div class="absolute pointer-events-none bottom-full w-full bg-secondary text-white">
-                    <div class="absolute bottom-full w-full pb-5 overflow-hidden">
-                        <svg viewBox="0 0 100 50" preserveAspectRatio="none"
-                             class="absolute bottom-0 w-full h-full tranform"
-                             style="transform-origin: top center; transform: scale(2);">
-                            <path d="M0 25h25L75 0h25v50H0z" fill="#283046"></path>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-
-            <div class="p-8">
-
-                <h2 class="text-3xl mb-2">
-                    Game Highlighting Clip
-                </h2>
-
-                <p class="mb-0">
-                    Luis Ramirez &#183;
-                    <span class="text-gray-400">March 31, 2020</span>
-                </p>
-
-            </div>
-
-        </a>
-        <a href="#"
-           class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
-
-            <img class="card-img-top rounded-tl-2xl w-full" src="">
-
-            <div class="relative">
-                <div class="absolute pointer-events-none bottom-full w-full bg-secondary text-white">
-                    <div class="absolute bottom-full w-full pb-5 overflow-hidden">
-                        <svg viewBox="0 0 100 50" preserveAspectRatio="none"
-                             class="absolute bottom-0 w-full h-full tranform"
-                             style="transform-origin: top center; transform: scale(2);">
-                            <path d="M0 25h25L75 0h25v50H0z" fill="#283046"></path>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-
-            <div class="p-8">
-
-                <h2 class="text-3xl mb-2">
-                    Game Highlighting Clip
-                </h2>
-
-                <p class="mb-0">
-                    Luis Ramirez &#183;
-                    <span class="text-gray-400">March 31, 2020</span>
-                </p>
-
-            </div>
-
-        </a>
-        <a href="#"
-           class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
-
-            <img class="card-img-top rounded-tl-2xl w-full" src="">
-
-            <div class="relative">
-                <div class="absolute pointer-events-none bottom-full w-full bg-secondary text-white">
-                    <div class="absolute bottom-full w-full pb-5 overflow-hidden">
-                        <svg viewBox="0 0 100 50" preserveAspectRatio="none"
-                             class="absolute bottom-0 w-full h-full tranform"
-                             style="transform-origin: top center; transform: scale(2);">
-                            <path d="M0 25h25L75 0h25v50H0z" fill="#283046"></path>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-
-            <div class="p-8">
-
-                <h2 class="text-3xl mb-2">
-                    Game Highlighting Clip
-                </h2>
-
-                <p class="mb-0">
-                    Luis Ramirez &#183;
-                    <span class="text-gray-400">March 31, 2020</span>
-                </p>
-
-            </div>
-
-        </a>
-        <a href="#"
-           class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
-
-            <img class="card-img-top rounded-tl-2xl w-full" src="">
-
-            <div class="relative">
-                <div class="absolute pointer-events-none bottom-full w-full bg-secondary text-white">
-                    <div class="absolute bottom-full w-full pb-5 overflow-hidden">
-                        <svg viewBox="0 0 100 50" preserveAspectRatio="none"
-                             class="absolute bottom-0 w-full h-full tranform"
-                             style="transform-origin: top center; transform: scale(2);">
-                            <path d="M0 25h25L75 0h25v50H0z" fill="#283046"></path>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-
-            <div class="p-8">
-
-                <h2 class="text-3xl mb-2">
-                    Game Highlighting Clip
-                </h2>
-
-                <p class="mb-0">
-                    Luis Ramirez &#183;
-                    <span class="text-gray-400">March 31, 2020</span>
-                </p>
-
-            </div>
-
-        </a>
+            <p class="mb-0 pl-6 pb-8">
+                {{post?.author}} &#183;
+                <span class="text-gray-400">{{post?.timestamp?.toDate() | date: 'dd MMM YYYY' }}</span>
+            </p>
+        </div>
     </div>
 </section>
